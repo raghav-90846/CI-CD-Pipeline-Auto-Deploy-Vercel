@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -11,19 +12,22 @@ pipeline {
                 bat 'npm install'
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Skipping tests - no test script found'
             }
         }
+
         stage('Build') {
             steps {
                 bat 'npm run build'
             }
         }
+
         stage('Deploy') {
             steps {
-                bat 'npx vercel --prod --yes --token=%VERCEL_TOKEN%'
+                bat 'npx --yes vercel@65.2.0 deploy --prod --yes --token "%VERCEL_TOKEN%"'
             }
         }
     }
