@@ -1,4 +1,4 @@
-
+```groovy
 pipeline {
     agent any
 
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'npx vercel --prod --yes --token=%VERCEL_TOKEN%'
+                bat 'npx --yes vercel@65.2.0 deploy --prod --yes'
             }
         }
     }
