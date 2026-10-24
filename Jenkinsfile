@@ -27,9 +27,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'npx --yes vercel@65.2.0 deploy --prod --yes'
+                bat 'npx --yes vercel@latest deploy --prod --yes'
             }
         }
     }
 }
+
 
